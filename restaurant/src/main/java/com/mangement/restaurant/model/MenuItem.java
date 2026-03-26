@@ -1,4 +1,4 @@
-package com.mangement.restaurant.model;
+	package com.mangement.restaurant.model;
 
 import java.math.BigDecimal;
 
@@ -30,7 +30,13 @@ public class MenuItem {
 	private String description;
 
 	@Column(nullable = false)
-	private BigDecimal price;
+	private Double price;
+	
+	@Column(name = "available")
+	private Boolean available = true;
+
+	@Column(name = "stock_quantity")
+	private Integer stockQuantity = 0;
 
 	@ManyToOne
 	@JoinColumn(name = "subcategory_id", nullable = false)
@@ -61,12 +67,12 @@ public class MenuItem {
 		this.description = description;
 	}
 
-	public BigDecimal getPrice() {
+	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(BigDecimal price) {
-		this.price = price;
+	public void setPrice(Double double1) {
+		this.price = double1;
 	}
 
 	public Subcategory getSubcategory() {
@@ -77,11 +83,27 @@ public class MenuItem {
 		this.subcategory = subcategory;
 	}
 
+	public Boolean getAvailable() {
+		return available;
+	}
+
+	public void setAvailable(Boolean available) {
+		this.available = available;
+	}
+
+	public Integer getStockQuantity() {
+		return stockQuantity;
+	}
+
+	public void setStockQuantity(Integer stockQuantity) {
+		this.stockQuantity = stockQuantity;
+	}
+
 	@Override
 	public String toString() {
 		return "MenuItem [id=" + id + ", name=" + name + ", description=" + description + ", price=" + price
+				+ ", available=" + available + ", stockQuantity=" + stockQuantity + ", subcategory=" + subcategory
 				+ "]";
 	}
-	
 
 }
