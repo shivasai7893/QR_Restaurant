@@ -38,21 +38,8 @@ public class RestaurController {
 	}
 	
 	//************************  Operation's on Category  ***********************************
-	//create or update
-	@PutMapping("/savecategory")
-	public Category saveCategory(@RequestBody Category catogery)
-	{
-		return categoryService.saveCategory(catogery);
-	}
-	
-	@PutMapping("/updatecategory")
-	public Category updateCategory(@RequestParam(name="categoryid")Long categoryid,@RequestBody Category catogery)
-	{
-		return categoryService.updateCategory(categoryid,catogery);
-	}
-	
-	
 	//read
+	
 	@GetMapping("/categorybyname")
 	public List<Category> getCategoryByName(@RequestParam(name="categoryname") String categoryname)
 	{
@@ -65,30 +52,6 @@ public class RestaurController {
 		return categoryService.getCategoryById(categoryid);
 	}
 	
-	@GetMapping("/allcategory")
-	public List<Category> getAllCategory()
-	{
-		return categoryService.getAllCategory();
-	}
-	
-	//delete
-	@DeleteMapping("deletecategorybyid")
-	public void deletecategoryById(@RequestParam(name="categoryid") Long categoryid)
-	{
-	 categoryService.deleteCategoryById(categoryid);
-	}
-	
-	@DeleteMapping("deletecategory")
-	public void deletecategoryById(Category category)
-	{
-	 categoryService.deleteCategory(category);
-	}
-	
-	@DeleteMapping("deleteallcategory")
-	public void deleteAllcategory()
-	{
-	 categoryService.deleteAllCategory();
-	}
 	
 	
 	//************************  Operation's on Sub-Category ***********************************
@@ -146,19 +109,6 @@ public class RestaurController {
 			
 
 		//************************  Operation's on Menu-Item ***********************************
-		//create or update
-		@PutMapping("/savemenuitem")
-		public MenuItem saveMenuItem(@RequestBody MenuItem menuItem)
-		{
-			return menuItemService.saveMenuItem(menuItem);
-		}
-		
-		@PutMapping("/updatemenuitem")
-		public MenuItem updateMenuItem(@RequestParam(name="menuid")Long menuid,@RequestBody MenuItem menuItem)
-		{
-			return menuItemService.updateMenuItem(menuid,menuItem);
-		}
-		
 		
 		//read
 		@GetMapping("/menuitembyname")
@@ -173,30 +123,5 @@ public class RestaurController {
 			return menuItemService.getMenuItemById(menuItemid);
 		}
 		
-		@GetMapping("/allmenuitem")
-		public List<MenuItem> getAllMenuItem()
-		{
-			return menuItemService.getAllMenuItem();
-		}
-		
-		//delete
-		@DeleteMapping("deletemenuitembyid")
-		public void deleteMenuItem(@RequestParam(name="menuItemid") Long menuItemid)
-		{
-		 menuItemService.deleteMenuItemById(menuItemid);
-		}
-		
-		@DeleteMapping("deletemenuitem")
-		public void deleteMenuItemById(MenuItem menuItem)
-		{
-		 menuItemService.deleteMenuItem(menuItem);
-		}
-		
-		@DeleteMapping("deleteallmenuitem")
-		public void deleteAllMenuItem()
-		{
-		 menuItemService.deleteAllMenuItem();
-		}
-
 		
 }
